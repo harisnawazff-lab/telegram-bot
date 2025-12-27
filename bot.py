@@ -3,7 +3,7 @@ from telegram.ext import ApplicationBuilder, CommandHandler, MessageHandler, Con
 import sqlite3
 
 TOKEN = "8410563728:AAE2twiF5nyeRPuHEAT9-YhsVw2t6LJ8Hv8"
-ADMIN_ID = 6952043184  # apni admin id yahin rehne do
+ADMIN_ID = 6952043184  # apni admin id
 
 conn = sqlite3.connect("data.db", check_same_thread=False)
 c = conn.cursor()
@@ -20,8 +20,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 async def login(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if "," not in update.message.text:
         return
-
-    username, password = update.message.text.split(",")
+    username, password = update.message.text.split(",", 1)
     uid = update.message.from_user.id
 
     c.execute("SELECT * FROM users WHERE id=?", (uid,))
