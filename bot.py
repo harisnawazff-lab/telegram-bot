@@ -2,8 +2,8 @@ from telegram import Update
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, CallbackContext
 import sqlite3
 
-TOKEN = 8410563728:AAE2twiF5nyeRPuHEAT9-YhsVw2t6LJ8Hv8
-ADMIN_ID = 6952043184
+TOKEN = "8410563728:AAE2twiF5nyeRPuHEAT9-YhsVw2t6LJ8Hv8"
+ADMIN_ID = "6952043184"
 
 conn = sqlite3.connect("data.db", check_same_thread=False)
 c = conn.cursor()
